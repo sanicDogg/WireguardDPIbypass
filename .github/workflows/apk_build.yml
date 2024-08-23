@@ -36,6 +36,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleRelease
 
+    - name: Check file structure of /app/build/outputs
+      run: |
+        sudo apt-get install tree -y
+        tree app/build/outputs
+
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
